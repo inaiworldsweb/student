@@ -17,14 +17,14 @@ const FeaturePill = ({ text }) => {
 
 const DashboardPreview = () => {
     return (
-        <section className="relative w-full max-w-[1050px] mx-auto px-4 py-20 flex flex-col items-center justify-center">
+        <section id="dashboard-preview" className="relative w-full max-w-[1050px] mx-auto px-4 py-20 flex flex-col items-center justify-center">
 
             {/* Heading */}
             <div className="relative z-10 flex flex-col items-center mb-16 text-center">
                 <div className="flex items-center gap-4 mb-4">
                     <div className="w-0.5 h-8 bg-white opacity-80"></div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white tracking-wide uppercase">
-                        STUDENT DASHBOARD PREVIEW 
+                        STUDENT DASHBOARD PREVIEW
                     </h2>
                     <div className="w-0.5 h-8 bg-white opacity-80"></div>
                 </div>

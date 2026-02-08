@@ -8,8 +8,8 @@ const TeacherCard = ({ logo, name, role, description, showBorder = true }) => {
     return (
         <div className={`flex flex-col items-center text-center p-6 md:p-8 w-full transition-all duration-300 hover:-translate-y-3 hover:brightness-125 hover:scale-105 cursor-pointer group ${showBorder ? 'md:border-r border-white/10' : ''}`}>
             {/* Logo Container with Height for alignment */}
-            <div className="h-40 flex items-end justify-center mb-6">
-                <img src={logo} alt={name} className="h-60 w-auto object-contain opacity-90 transition-transform duration-300 group-hover:scale-110" />
+            <div className="h-full flex items-end justify-center mb-6">
+                <img src={logo} alt={name} className="h-40 w-auto object-contain opacity-90 transition-transform duration-300 group-hover:scale-110" />
             </div>
 
             {/* Name */}
@@ -43,7 +43,7 @@ const MeetYourTeacher = () => {
                 {/* Decorative connecting lines (left and right) outside the box could go here, but keeping it inside for clean component structure initially */}
 
                 {/* Heading */}
-                <div className="relative z-10 flex flex-col items-center mb-12">
+                <div className="relative z-10 flex flex-col items-center">
                     <div className="mb-4 border border-white/30 px-10 py-3 backdrop-blur-sm rounded-none">
                         <h2 className="text-xl md:text-xl font-bold text-white tracking-[0.2em] uppercase">
                             MEET YOUR AI TEACHERS <span className="opacity-70 font-normal">&lt;/&gt;</span>

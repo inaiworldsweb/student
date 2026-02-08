@@ -3,7 +3,7 @@ import React from 'react';
 const FeatureCard = ({ text, shadowClass, customShadow }) => {
     return (
         <div
-            className={`relative bg-[#050505] rounded-2xl p-6 flex items-center justify-center text-center h-40 w-58 overflow-hidden group transition-all duration-300 hover:-translate-y-1`}
+            className={`relative bg-[#050505] rounded-2xl p-6 flex items-center justify-center text-center min-h-[160px] w-full max-w-[280px] mx-auto overflow-hidden group transition-all duration-300 hover:-translate-y-1`}
             style={{ boxShadow: customShadow }}
         >
 
@@ -20,7 +20,7 @@ const FeatureCard = ({ text, shadowClass, customShadow }) => {
 
 const ED_INAI = () => {
     return (
-        <section className="relative w-full max-w-[1050px] mx-auto px-4 py-20 flex flex-col items-center justify-center">
+        <section id="what-is-edinai" className="relative w-full max-w-[1050px] mx-auto px-4 py-20 flex flex-col items-center justify-center">
 
             {/* Main Dark Container */}
             <div className="relative w-full bg-[#030303] border border-white/10 rounded-[40px] px-8 py-12 md:px-10 md:py-20 flex flex-col items-center text-center overflow-hidden shadow-2xl">
@@ -33,7 +33,7 @@ const ED_INAI = () => {
                 <div className="flex items-center gap-4 mb-8">
                     <div className="w-0.5 h-8 bg-white opacity-80"></div>
                     <h2 className="text-2xl md:text-3xl font-bold text-white tracking-wide uppercase">
-                        WHAT IS ED-INAI? 
+                        WHAT IS ED-INAI?
                     </h2>
                     <div className="w-0.5 h-8 bg-white opacity-80"></div>
                 </div>

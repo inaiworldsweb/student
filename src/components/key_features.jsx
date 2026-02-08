@@ -1,18 +1,49 @@
 import React from 'react';
+import { motion } from 'framer-motion';
+
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+            delayChildren: 0.1
+        }
+    }
+};
+
+const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
+    }
+};
 
 const FeatureItem = ({ icon, title, description }) => {
     return (
-        <div
+        <motion.div
+            variants={itemVariants}
             className="rounded-2xl p-4 flex flex-col items-start text-left transition-colors group border border-[#53546C]/30 hover:border-[#53546C]/50"
             style={{
                 background: 'linear-gradient(80.42deg, rgba(0, 0, 0, 0.16) 25.25%, rgba(83, 84, 108, 0.16) 98.05%)',
-                backdropFilter: 'blur(10px)' // Optional: Adds glass effect if desired, consistent with modern UI
+                backdropFilter: 'blur(10px)'
+            }}
+            whileHover={{
+                y: -5,
+                boxShadow: '0 15px 30px -10px rgba(0,0,0,0.4)',
+                transition: { type: 'spring', stiffness: 400, damping: 17 }
             }}
         >
             {/* Icon */}
-            <div className="mb-6 text-blue-500">
+            <motion.div
+                className="mb-6 text-blue-500"
+                whileHover={{ scale: 1.1, rotate: 5 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 17 }}
+            >
                 {icon}
-            </div>
+            </motion.div>
 
             {/* Title */}
             <h3 className="text-white font-bold text-xl mb-3 group-hover:text-blue-400 transition-colors">{title}</h3>
@@ -21,28 +52,40 @@ const FeatureItem = ({ icon, title, description }) => {
             <p className="text-gray-400 text-sm leading-relaxed">
                 {description}
             </p>
-        </div>
+        </motion.div>
     );
 };
 
 const KeyFeatures = () => {
     return (
-        <section className="relative w-full max-w-[1050px] mx-auto px-4 py-24 flex flex-col items-center justify-center">
+        <motion.section
+            className="relative w-full max-w-[1050px] mx-auto px-4 py-24 flex flex-col items-center justify-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={containerVariants}
+        >
 
             {/* Heading */}
-            <div className="relative z-10 flex flex-col items-center mb-16 text-center">
+            <motion.div
+                className="relative z-10 flex flex-col items-center mb-16 text-center"
+                variants={itemVariants}
+            >
                 <div className="flex items-center gap-4 mb-3 border-x-2 border-white px-6 py-1">
                     <h2 className="text-xl md:text-2xl font-bold text-white tracking-widest uppercase">
-                        KEY FEATURES FOR STUDENTS 
-                        </h2>
+                        KEY FEATURES FOR STUDENTS
+                    </h2>
                 </div>
                 <p className="text-gray-400 text-sm tracking-wide font-medium">
                     "Interactive lessons, real-time feedback, and smarter learning tools."
                 </p>
-            </div>
+            </motion.div>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative z-10">
+            <motion.div
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full relative z-10"
+                variants={containerVariants}
+            >
 
                 {/* 1. Live AI Classes */}
                 <FeatureItem
@@ -120,17 +163,24 @@ const KeyFeatures = () => {
                     description="See Completed Chapters, Quiz Scores, And Recommended Next Steps In A Clean Visual Dashboard."
                 />
 
-            </div>
+            </motion.div>
 
             {/* Decorative Star (Left) */}
-            <div className="absolute top-[10%] left-[-20px] hidden md:block animate-pulse duration-[4000ms] opacity-60">
+            <motion.div
+                className="absolute top-[10%] left-[-20px] hidden md:block opacity-60"
+                initial={{ opacity: 0, scale: 0 }}
+                whileInView={{ opacity: 0.6, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.5 }}
+            >
                 <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 0C12 8 16 12 24 12C16 12 12 16 12 24C12 16 8 12 0 12C8 12 12 8 12 0Z" fill="#9CA3AF" />
                 </svg>
-            </div>
+            </motion.div>
 
-        </section>
+        </motion.section>
     );
 };
 
 export default KeyFeatures;
+

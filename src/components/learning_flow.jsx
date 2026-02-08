@@ -28,7 +28,7 @@ const StepCard = ({ number, title, showRightBorder = false, showBottomBorder = f
 
 const LearningFlow = () => {
     return (
-        <section className="relative w-full max-w-[1050px] mx-auto px-4 py-24 flex flex-col items-center justify-center">
+        <section id="learning-flow" className="relative w-full max-w-[1050px] mx-auto px-4 py-24 flex flex-col items-center justify-center">
 
             <h2 className="text-2xl md:text-3xl font-bold text-white mb-20 tracking-tight text-center">
                 Simple & Effective Learning Flow
